@@ -1,4 +1,5 @@
-import javafx.application.Application;
+package views.popup;
+
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -11,15 +12,23 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 
-public class Register1 extends Application {
+public class Register {
 
-
-    @Override
-    public void start(Stage primaryStage) {
+	public static void display(Stage popupStage) {
         // --- POPUP CARD (STANDALONE VBOX) ---
+    	
+        // 1. Create a new Stage (window)
+        Stage registerStage = new Stage();
+        
+        // 2. Set Modality to block input events to other windows
+        registerStage.initModality(Modality.APPLICATION_MODAL);
+
+        // 3. Set the owner window (optional, but highly recommended)
+        registerStage.initOwner(popupStage);
        
         // Header ("CREATE ACCOUNT" + "X" Close Button)
         Label titleLabel = new Label("CREATE ACCOUNT");
@@ -28,7 +37,7 @@ public class Register1 extends Application {
 
         Button closeButton = new Button("X");
         closeButton.setStyle("-fx-background-color: transparent; -fx-font-weight: bold; -fx-font-size: 14px; -fx-cursor: hand;");
-        closeButton.setOnAction(e -> primaryStage.close());
+        closeButton.setOnAction(e -> registerStage.close());
 
 
         BorderPane headerBox = new BorderPane();
@@ -87,7 +96,7 @@ public class Register1 extends Application {
             "-fx-background-radius: 0; " +
             "-fx-cursor: hand;"
         );
-        confirmButton.setOnAction(e -> primaryStage.close());
+        confirmButton.setOnAction(e -> registerStage.close());
 
 
         // Assembly of Inner Layout
@@ -108,14 +117,10 @@ public class Register1 extends Application {
 
         // Display directly as the main scene
         Scene scene = new Scene(popupCard, 310, 280);
-        primaryStage.setTitle("Create Account");
-        primaryStage.setScene(scene);
-        primaryStage.setResizable(false);
-        primaryStage.show();
-    }
+        registerStage.setTitle("Create Account");
+        registerStage.setScene(scene);
+        registerStage.setResizable(false);
+        registerStage.show();
+	}
 
-
-    public static void main(String[] args) {
-        launch(args);
-    }
 }

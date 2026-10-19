@@ -8,6 +8,7 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import views.popup.Login;
+import views.popup.Register;
 
 public class Template extends Application {
 
@@ -79,11 +80,15 @@ public class Template extends Application {
         switch(text) {
 	        case "Option 1" : button.setOnAction(e -> 
 	        
-	        		// Pass your primary stage down to bind the pop-up to it
+	        		// Pass your Login stage down to bind the pop-up to it
 		        	{Login.display((Stage) button.getScene().getWindow());		        
 		        });
 	        break;
-	        case "Option 2" : button.setOnAction(e -> showDummyPopup(text)); break;
+	        case "Option 2" : button.setOnAction(e -> 	        
+		    		// Pass your Register stage down to bind the pop-up to it
+		        	{Register.display((Stage) button.getScene().getWindow());		        
+		        });
+	        break;
 	        case "Option 3" : button.setOnAction(e -> showDummyPopup(text)); break;
         }
 
