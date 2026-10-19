@@ -74,7 +74,13 @@ public class Template extends Application {
             "-fx-cursor: hand;"
         );
 
-        // Dummy popup trigger on click
+        
+        switch(text) {
+	        case "Option 1" : button.setOnAction(e -> showDummyPopup(text)); break;
+	        case "Option 2" : button.setOnAction(e -> showDummyPopup(text)); break;
+	        case "Option 3" : button.setOnAction(e -> showDummyPopup(text)); break;
+        }
+        // Dummy po1pup trigger on click
         button.setOnAction(e -> showDummyPopup(text));
 
         return button;
