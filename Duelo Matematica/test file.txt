@@ -1,0 +1,11 @@
+FX thread (ONE thread, always):
+  ├─ outer loop: "wait for events on main window"
+  │     └─ button click arrives
+  │           └─ handler runs: Login.display(...)
+  │                 ├─ showAndWait() pushes inner loop:
+  │                 │      ├─ inner loop: "wait for events on login popup"
+  │                 │      │      ├─ user clicks CONFIRM → close popup
+  │                 │      │      └─ inner loop exits
+  │                 └─ showAndWait() returns, handler continues
+  └─ back to outer loop
+  
