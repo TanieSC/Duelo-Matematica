@@ -81,7 +81,7 @@ public class Template extends Application {
 	        case "Option 3" : button.setOnAction(e -> showDummyPopup(text)); break;
         }
         // Dummy po1pup trigger on click
-        button.setOnAction(e -> showDummyPopup(text));
+       // button.setOnAction(e -> showDummyPopup(text));
 
         return button;
     }
